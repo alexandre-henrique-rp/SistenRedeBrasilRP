@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+:root {
+  --blue: ;
+  --white: #fff;
+  --primary: #00713c;
+  --secondary: #1D1D1B;
+  --green: #00ff88;
+  --green2: #00ff8052;
+  --grey: #f0ffffde;
+  --grey2: #f0ffff94;
+  --dark: #514869;
+  --black: #00000056;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.menu {
+  position: fixed;
+  width: 15%;
+  height: 100%;
+  background: var(--primary);
+  border-left: 10px solid var(--primary);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.menu-link {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  
+}
+
+.menu-link-li:hover {
+  background: var(--white);
+}
+
+.menu-link-li {
+  position: relative;
+  width: 100%;
+  list-style: nome;
+  border-bottom-left-radius: 30vh;
+  border-top-left-radius: 30vh;
+
+
+}
+
+.linkMenu {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.linkMenu:hover {
+  color: var(--secondary);
+  text-decoration: none
+}
+
+.menu-logo img {
+  width: 22vw;
+  margin-top: -10vh;
+  margin-left: -4vw;
+  margin-bottom: -10vh;
+}
+
+.linkMenu svg {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  padding: 15px 0;
+  height: 25px;
+  line-height: 60px;
+  text-align: center;
+  text-emphasis: start;
+  font-size: 3.75em;
+  font-size: 20px;
+}
+
+.linkMenu a {
+  position: relative;
+  display: block;
+  padding: 8px 10px;
+  height: 40px;
+  line-height: 45px;
+  text-emphasis: start;
+  white-space: nowrap;
+}
+
+/* curve outside */
+.menu-link-li:hover .linkMenu::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-link-li:hover .linkMenu::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.conteudo{
+ position: relative;
+ margin-left: 15%;
+ width: 85%;
+ height: 100%;
 }
