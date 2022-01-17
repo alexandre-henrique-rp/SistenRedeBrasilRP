@@ -3,7 +3,7 @@
 
 import './App.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import LOGO2 from '../public/LOGO 2.svg';
+import LOGO2 from './img/LOGO 2.svg';
 import Login from './Login';
 import Mensagem from './Pages/Mensagem';
 import { IoHomeOutline } from "react-icons/io5";
