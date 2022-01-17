@@ -17,7 +17,7 @@ export default function Cliente05() {
     });
   }
 
-   async function enviarMensagem() {
+  async function enviarMensagem() {
     await cliente05.forEach(function (item, index) {
       setTimeout(function () {
         var dia = "em: *05 dia*";
@@ -49,6 +49,8 @@ export default function Cliente05() {
       }, index * 20000);
       console.log("concluído")
     });
+    await console.log("concluído")
+
     await cliente05.forEach(function (item) {
       let dia = "em: 05 dia  ";
       clienteHttp.post('/send/email', { email: item.email, tipoCD: item.tipoCD, titulo: item.titulo, dia: dia, vctoCD: item.vctoCD, titulo_doc: item.titulo_doc, id: item.id }).then(function (response) {

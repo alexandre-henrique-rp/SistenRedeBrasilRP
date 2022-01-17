@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
-  height: 12vh;
+  height: 8vh;
 }
 
 .card {
@@ -54,7 +54,7 @@
   height: 40%;
 }
 .card p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-top: 2vh;
 }
 
@@ -77,12 +77,11 @@
 
 .BTM-regular-ok {
   width: 20%;
-  font-size: 1rem;
-  border-radius: 20px;
+  font-size: 0.9rem;
+  border-radius: 15px;
   border: none;
   padding: 10px 5px;
   border: none;
-  border-radius: 8px;
   outline: none;
   text-transform: uppercase;
   font-weight: 800;

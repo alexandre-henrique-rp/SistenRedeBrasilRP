@@ -19,8 +19,8 @@ export default function Cliente10() {
     });
   }
 
-  function enviarMensagem() {
-    cliente10.forEach(function (item, index) {
+  async function enviarMensagem() {
+    await cliente10.forEach(function (item, index) {
       setTimeout(function () {
         var dia = "em: *10 dia*";
         var smsScript = "Prezado Cliente \n \nEstamos entrando em contato para informar que o seu Certificado digital \nModelo: *" + item.tipoCD + ". - " + item.titulo + ",*\n*" + item.titulo_doc + "* \nExpira " + dia + "          " + item.vctoCD.substr(8, 2) + "/" + item.vctoCD.substr(5, 2) + "/" + item.vctoCD.substr(0, 4) + "            \nfc:" + item.id + "       \n \nNão deixe para a última hora, Entre em contato agora          \npelo WhatsApp (16) 3325-4134 e renove o seu certificado.          \nAtenciosamente Equipe Rede Brasil Rp"
@@ -51,13 +51,13 @@ export default function Cliente10() {
       }, index * 20000);
       console.log("concluído")
     });
-    cliente10.forEach(function (item) {
+    await cliente10.forEach(function (item) {
       let dia = "em: 10 dia  ";
       clienteHttp.post('/send/email', { email: item.email, tipoCD: item.tipoCD, titulo: item.titulo, dia: dia, vctoCD: item.vctoCD, titulo_doc: item.titulo_doc, id: item.id }).then(function (response) {
         console.log(response.data)
       });
     });
-    console.log('concluído')
+    await console.log("concluído")
   }
 
   useEffect(() => {
