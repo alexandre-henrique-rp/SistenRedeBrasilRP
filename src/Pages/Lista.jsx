@@ -10,7 +10,7 @@ export default function Lista() {
 
 
   async function obterCliente() {
-    const resp = await fetch('http://localhost:3000/api/get')
+    const resp = await fetch(process.env.REACT_APP_POT)
     const dados = await resp.json()
     setCliente(dados);
   }

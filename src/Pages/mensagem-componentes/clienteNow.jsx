@@ -9,7 +9,7 @@ export default function ClienteNow() {
 
 
   const clienteHttp = axios.create({
-    baseURL: 'http://localhost:3004/'
+    baseURL: process.env.REACT_APP_POT
   });
 
   async function obterClienteNow() {
@@ -20,26 +20,26 @@ export default function ClienteNow() {
 
   function enviarMensagem() {
 
-    
+
     clienteNow.forEach(function (item, index) {
       setTimeout(function () {
 
         let dia = ": *HOJE*"
         let smsScript = "Prezado Cliente \n \nEstamos entrando em contato para informar que o seu Certificado digital \nModelo: *" + item.tipoCD + ". - " + item.titulo + ",*\n*" + item.titulo_doc + "* \nExpira " + dia + "          " + item.vctoCD.substr(8, 2) + "/" + item.vctoCD.substr(5, 2) + "/" + item.vctoCD.substr(0, 4) + "            \nfc:" + item.id + "       \n \nNão deixe para a última hora, Entre em contato agora          \npelo WhatsApp (16) 3325-4134 e renove o seu certificado.          \nAtenciosamente Equipe Rede Brasil Rp";
-        
+
         // clienteHttp.post('/send/whatsapp', { telefone: item.telefone, smg: smsScript }).then(function (response) {
         //   console.log(response.data)
         // });
         const requestOptionsDefault = {
           headers: {
-            "access-token": "60de0c8bb0012f1e6ac5546b",
-            "Content-Type": "application/json"
+            "access-token": process.env.REACT_APP_TOKEN,
+            "Content-Type": process.env.REACT_APP_TYPE
           },
           redirect: 'follow'
         };
-        axios.post("https://api.zapstar.com.br/core/v2/api/chats/send-text", JSON.stringify({
+        axios.post(process.env.REACT_APP_URL_API, JSON.stringify({
           "number": 55 + item.telefone,
-          // "number": 55169898247675,
+          // "number": process.env.REACT_APP_TEST,
           "message": smsScript,
           "forceSend": true,
           "verifyContact": false
@@ -65,7 +65,7 @@ export default function ClienteNow() {
     console.log('concluído')
   }
 
-  
+
 
   useEffect(() => {
     obterClienteNow();
