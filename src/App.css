@@ -11,7 +11,11 @@
   --black: #00000056;
 }
 
+
+
 body {
+  height: 100%;
+  width: 100%;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -30,6 +34,7 @@ body {
   transition: 0.5s;
   overflow: hidden;
   min-width: 250px;
+  margin-top: 0;
 }
 
 .menu-link {
@@ -127,6 +132,6 @@ body {
 
 .conteudo {
   height: 100%;
-  margin-left: max(15%, 250px);
-  width: 70%;
+  margin-left: max(15%, 255px);
+  width: 78%;
 }

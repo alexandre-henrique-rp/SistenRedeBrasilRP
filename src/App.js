@@ -12,6 +12,7 @@ import { IoMailOpenOutline } from "react-icons/io5";
 import { IoCalendarOutline } from "react-icons/io5";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { AiOutlineLogin } from "react-icons/ai";
+import Calendario from './Pages/calendadrio/calendadrio';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
               <Link to="/" className="linkMenu"><IoPersonAddOutline /><a>Novo registro</a></Link>
             </div>
             <div className="menu-link-li">
-              <Link to="/" className="linkMenu"><IoCalendarOutline /><a>Agenda</a></Link>
+              <Link to="/agenda" className="linkMenu"><IoCalendarOutline /><a>Agenda</a></Link>
             </div>
             <div className="menu-link-li">
               <Link to="/mensagem" className="linkMenu"><IoMailOpenOutline /><a>Notificar Cliente</a></Link>
@@ -53,6 +54,9 @@ function App() {
             <Route path="/criar" exact>
 
             </Route>
+            <Route path="/agenda" exact>
+              <Calendario />
+            </Route>
             <Route path="/mensagem" exact>
               <Mensagem />
             </Route>
@@ -63,9 +67,9 @@ function App() {
 
         </div>
       </div>
-    </Router>
+    </Router >
   );
-  
+
 }
 
 export default App;
