@@ -89,7 +89,7 @@ export default function Calendario() {
                }
           }
           
-          var titulo = item.id + ' ' + item.titulo; 
+          var titulo = item.id + " " + item.validacao + " " + item.titulo; 
                
           
 
