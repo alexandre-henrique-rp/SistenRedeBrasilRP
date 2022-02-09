@@ -12,18 +12,18 @@
 }
 
 .cliente {
-  width: 100%;
+  align-content: space-around;
   display: flex;
-  margin-top: 40px;
-  justify-content: space-evenly;
-  height: 50vh;
   flex-wrap: wrap;
+  height: 50vh;
   justify-content: space-evenly;
-  align-content: space-between;
+  margin-top: 40px;
+  width: 100%;
 }
 
+
 .container-mensagem {
-  width: 98%;
+  width: 90%;
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -33,7 +33,7 @@
 .container-mensagem h3 {
   font-size: 32px;
   padding-top: 26px;
-  margin: 0;
+  margin-left: 0;
   margin-bottom: 10px;
   height: 9vh;
 }
@@ -53,6 +53,7 @@
   border-radius: 20px;
   height: 40%;
 }
+
 .card p {
   font-size: 0.9rem;
   margin-top: 2vh;
@@ -77,7 +78,8 @@
 
 .BTM-regular-ok {
   width: 20%;
-  font-size: 0.9rem;
+  min-width: 193px;
+  font-size: max(61%, 0.9rem);
   border-radius: 15px;
   border: none;
   padding: 10px 5px;

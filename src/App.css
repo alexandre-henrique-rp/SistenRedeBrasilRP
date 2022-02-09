@@ -126,8 +126,7 @@ body {
 }
 
 .conteudo {
-  position: relative;
-  margin-left: 15%;
-  width: 85%;
   height: 100%;
+  margin-left: max(15%, 250px);
+  width: 70%;
 }
