@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "engines": {
-    "node": "16.13.1",
+    "node": "16.13.2",
     "yarn": "1.22.17"
   },
   "private": true,
