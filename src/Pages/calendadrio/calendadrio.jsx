@@ -88,12 +88,14 @@ export default function Calendario() {
                
                }
           }
+          
+          var titulo = item.id + ' ' + item.titulo; 
                
           
 
 
           return {
-               title: item.titulo,
+               title: titulo,
                start: new Date(ano, mes, dia, hora, minuto, segundo),
                end: new Date(endAno, endMes, endDia, horaFim, minutoFim, segundo),
                backgroundEvents:validacao()
