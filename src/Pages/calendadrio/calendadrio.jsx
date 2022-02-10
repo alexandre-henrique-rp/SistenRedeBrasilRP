@@ -22,29 +22,6 @@ const localizer = dateFnsLocalizer({
      locales,
 })
 
-// const events = [
-//      {
-//           title: "Big calendar",
-//           allDay: true,
-//           start: new Date(2022, 1, 7),
-//           end: new Date(2022, 1, 7),
-
-//      },
-//      {
-//           title: "reunião",
-//           start: new Date(2022, 1, 7),
-//           end: new Date(2022, 1, 7)
-//      },
-//      {
-//           title: "Conferencia ",
-//           start: new Date(2022, 1, 7),
-//           end: new Date(2022, 1, 7)
-//      },
-// ];
-
-
-
-
 
 export default function Calendario() {
      const [cliente, setCliente] = useState([])
@@ -79,16 +56,19 @@ export default function Calendario() {
           var horaFim = ndt.getHours();
           var minutoFim = ndt.getMinutes();
           // var link = $("")
-          function validacao() {
-               var vld = item.validacao
-               if (vld === "VIDEO CONF") {
-                    return <div className="rbc-event" style={{ backgroundColor: "#8e24aa"}} />;
-               } else if (vld === "EXTERNA") {
-                    return <div className="rbc-event" style={{ backgroundColor: "#f6bf26" }} />;
+          // function validacao() {
                
-               }
-          }
+          //      var vld = item.validacao
+          //      if (vld === "VIDEO CONF") {
+          //           return <div className="rbc-event" style={{ backgroundColor: "#8e24aa"}} />;
+          //      } else if (vld === "EXTERNA") {
+          //           return  "#f6bf26" 
+               
+          //      }
+          // }
           
+          // backgroundColor: 'chartreuse'
+               
           var titulo = item.id + " " + item.validacao + " " + item.titulo; 
                
           
@@ -98,7 +78,7 @@ export default function Calendario() {
                title: titulo,
                start: new Date(ano, mes, dia, hora, minuto, segundo),
                end: new Date(endAno, endMes, endDia, horaFim, minutoFim, segundo),
-               backgroundEvents:validacao()
+               
 
           };
 

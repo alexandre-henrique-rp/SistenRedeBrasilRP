@@ -6,6 +6,7 @@ import axios from 'axios';
 
 export default function Cliente05() {
   const [cliente05, setCliente05] = useState([])
+ 
 
   const clienteHttp = axios.create({
     baseURL: process.env.REACT_APP_POT
@@ -22,7 +23,14 @@ export default function Cliente05() {
       setTimeout(function () {
         var dia = "em: *05 dia*";
         var smsScript = "Prezado Cliente \n \nEstamos entrando em contato para informar que o seu Certificado digital \nModelo: *" + item.tipoCD + ". - " + item.titulo + ",*\n*" + item.titulo_doc + "* \nExpira " + dia + "          " + item.vctoCD.substr(8, 2) + "/" + item.vctoCD.substr(5, 2) + "/" + item.vctoCD.substr(0, 4) + "            \nfc:" + item.id + "       \n \nNão deixe para a última hora, Entre em contato agora          \npelo WhatsApp (16) 3325-4134 e renove o seu certificado.          \nAtenciosamente Equipe Rede Brasil Rp"
-       
+
+        const ref = item.id;
+        const log = item.telefone;
+
+        function regError() {
+          clienteHttp.post('/log-error', { log: log, ref: ref });
+        }
+
         const requestOptionsDefault = {
           headers: {
             "access-token": process.env.REACT_APP_TOKEN,
@@ -41,8 +49,9 @@ export default function Cliente05() {
             console.log(JSON.stringify(response.data));
           })
           .catch(function (error) {
-            console.log(error)
+            console.log(error.message)
             console.log(item.telefone)
+            regError()
           });
       }, index * 20000);
       console.log("concluído")

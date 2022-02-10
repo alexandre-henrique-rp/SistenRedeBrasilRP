@@ -7,7 +7,6 @@ import axios from 'axios';
 export default function ClienteNow() {
   const [clienteNow, setClienteNow] = useState([])
 
-
   const clienteHttp = axios.create({
     baseURL: process.env.REACT_APP_POT
   });
@@ -27,9 +26,13 @@ export default function ClienteNow() {
         let dia = ": *HOJE*"
         let smsScript = "Prezado Cliente \n \nEstamos entrando em contato para informar que o seu Certificado digital \nModelo: *" + item.tipoCD + ". - " + item.titulo + ",*\n*" + item.titulo_doc + "* \nExpira " + dia + "          " + item.vctoCD.substr(8, 2) + "/" + item.vctoCD.substr(5, 2) + "/" + item.vctoCD.substr(0, 4) + "            \nfc:" + item.id + "       \n \nNão deixe para a última hora, Entre em contato agora          \npelo WhatsApp (16) 3325-4134 e renove o seu certificado.          \nAtenciosamente Equipe Rede Brasil Rp";
 
-        // clienteHttp.post('/send/whatsapp', { telefone: item.telefone, smg: smsScript }).then(function (response) {
-        //   console.log(response.data)
-        // });
+        const ref = item.id;
+        const log = item.telefone;
+
+        function regError() {
+          clienteHttp.post('/log-error', { log: log, ref: ref });
+        }
+       
         const requestOptionsDefault = {
           headers: {
             "access-token": process.env.REACT_APP_TOKEN,
@@ -38,7 +41,7 @@ export default function ClienteNow() {
           redirect: 'follow'
         };
         axios.post(process.env.REACT_APP_URL_API, JSON.stringify({
-          "number": 55 + item.telefone,
+          "number": 55 + 1621020350,
           // "number": process.env.REACT_APP_TEST,
           "message": smsScript,
           "forceSend": true,
@@ -50,6 +53,7 @@ export default function ClienteNow() {
           .catch(function (error) {
             console.log(error.mensagem)
             console.log(item.telefone)
+            regError()
           });
       }, index * 20000);
       console.log("concluído")
