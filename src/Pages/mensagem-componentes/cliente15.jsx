@@ -55,9 +55,6 @@ export default function Cliente15() {
           .then(function (response) {
             console.log(JSON.stringify(response.data));
           })
-          .then( () => {
-           throw new Error(item.telefone)
-          })
           .catch(function (error) {
             console.log(error.message)
             console.log(tel)

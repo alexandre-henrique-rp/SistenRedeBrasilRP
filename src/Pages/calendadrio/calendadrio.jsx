@@ -1,5 +1,5 @@
 import './calendario.css';
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import { Calendar, dateFnsLocalizer, V } from 'react-big-calendar';
 import format from 'date-fns/format';
 import getDay from 'date-fns/getDay';
 import parse from 'date-fns/parse';
@@ -8,6 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import React, { useEffect, useState } from 'react';
 import ptBR from 'date-fns/locale/pt-BR';
 import axios from 'axios';
+
 
 
 const locales = {
@@ -78,7 +79,8 @@ export default function Calendario() {
                title: titulo,
                start: new Date(ano, mes, dia, hora, minuto, segundo),
                end: new Date(endAno, endMes, endDia, horaFim, minutoFim, segundo),
-               
+               style: { backgroundColor: "#f6bf26"
+}
 
           };
 

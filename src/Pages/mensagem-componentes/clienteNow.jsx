@@ -51,7 +51,7 @@ export default function ClienteNow() {
             console.log(JSON.stringify(response.data));
           })
           .catch(function (error) {
-            console.log(error.mensagem)
+            console.log(error.message)
             console.log(item.telefone)
             regError()
           });
