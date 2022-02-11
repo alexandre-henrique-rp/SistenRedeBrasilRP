@@ -41,7 +41,7 @@ export default function ClienteNow() {
           redirect: 'follow'
         };
         axios.post(process.env.REACT_APP_URL_API, JSON.stringify({
-          "number": 55 + 1621020350,
+          "number": 55 + item.telefone,
           // "number": process.env.REACT_APP_TEST,
           "message": smsScript,
           "forceSend": true,
