@@ -105,11 +105,13 @@ export default function Calendario() {
                          end,
                          isSelected,
                          style: {
-                              backgroundColor: event.type === "APROVADO" ? "#4c2bf1" : event.type === "EMITIDO" ? "#4c2bf1" : event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "RENOV ONLINE" ? "#696969" :  event.type === "INFORMACOES" ? "#fd2600" : "#ffff",
+                              backgroundColor: event.type === "APROVADO" ? "#4c2bf1" : event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "INFORMACOES" ? "#fd2600" : "#ffff",
+                              
+                              backgroundImage: event.type === "EMITIDO" ? "linear-gradient(to right, #3921B5, #4c2bf1, #7960F5)" : " ",
                               
                               border: event.type === " " ? "3px solid #000000" : "1px solid",
                     
-                              borderColor: event.type === "VIDEO CONF" ? "#471255" : event.type === "EXTERNA" ? "#707C00" : event.type === "INTERNA" ? "#7B2B00" : event.type === "VIDEO INTERNA" ? "#01360E" : event.type === "RENOV ONLINE" ? "#353535" : event.type === "APROVADO" ? "#261679" : event.type === "EMITIDO" ? "#261679" : "#000",
+                              borderColor: event.type === "VIDEO CONF" ? "#471255" : event.type === "EXTERNA" ? "#707C00" : event.type === "INTERNA" ? "#7B2B00" : event.type === "VIDEO INTERNA" ? "#01360E" : event.type === "RENOV ONLINE" ? "#353535" : event.type === "APROVADO" ? "#ccc" : event.type === "EMITIDO" ? "#ccc" : "#000",
                               
                               color: event.type === "VIDEO CONF" ? "#fff" : event.type === "EXTERNA" ? "#000" : event.type === "INTERNA" ? "#ffff" : event.type === "VIDEO INTERNA" ? "#ffff" : event.type === "RENOV ONLINE" ? "#ffff" : event.type === "APROVADO" ? "#ffff" : event.type === "EMITIDO" ? "#ffff" : event.type === "INFORMACOES" ? "#ffff" : "#000",
                          },
@@ -118,4 +120,4 @@ export default function Calendario() {
 
           </div>
      )
-}
+} 
