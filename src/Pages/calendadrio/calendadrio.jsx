@@ -57,8 +57,9 @@ export default function Calendario() {
           var horaFim = ndt.getHours();
           var minutoFim = ndt.getMinutes();
           let vld = item.validacao === "VIDEO CONF" ? "VC" : item.validacao === "INTERNA" ? "INT" : item.validacao === "EXTERNA" ? "EXT" : item.validacao === "VIDEO INTERNA" ? "VI" : item.validacao === "RENOV ONLINE" ? "RO" : "";
-               
-          var titulo = vld + "  " + item.id + "  " + item.titulo; 
+          let identifica = item.validacao === "VIDEO CONF" ? item.validacao : item.validacao === "INTERNA" ? item.validacao : item.validacao === "EXTERNA" ? item.validacao : item.validacao === "VIDEO INTERNA" ? item.validacao : item.validacao === "RENOV ONLINE" ? item.validacao : item.andamento;
+         
+          var titulo = vld + "  " + item.id + "  " + item.titulo + " " + item.obs_agenda; 
                
           
 
@@ -68,7 +69,7 @@ export default function Calendario() {
                id: item.id,
                start: new Date(ano, mes, dia, hora, minuto, segundo),
                end: new Date(endAno, endMes, endDia, horaFim, minutoFim, segundo),
-               type: item.validacao,
+               type: identifica,
           };
 
      });
@@ -97,12 +98,13 @@ export default function Calendario() {
                          end,
                          isSelected,
                          style: {
-                              backgroundColor: event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : "#ffff",
+                              backgroundColor: event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "APROVADO" ? "#4c2bf1" : event.type === "EMITIDO" ? "#4c2bf1" : event.type === "INFORMACOES" ? "#fd2600" : "#ffff",
                               
+                              border: event.type === " " ? "3px solid #000000" : "none",
                               border: "1px solid",
-                              borderColor: event.type === "VIDEO CONF" ? "#471255" : event.type === "EXTERNA" ? "#707C00" : event.type === "INTERNA" ? "#7B2B00" : event.type === "VIDEO INTERNA" ? "#01360E" : event.type === "RENOV ONLINE" ? "#353535" : "",
+                              borderColor: event.type === "VIDEO CONF" ? "#471255" : event.type === "EXTERNA" ? "#707C00" : event.type === "INTERNA" ? "#7B2B00" : event.type === "VIDEO INTERNA" ? "#01360E" : event.type === "RENOV ONLINE" ? "#353535" : event.type === "APROVADO" ? "#261679" : event.type === "EMITIDO" ? "#261679" : "#000",
                               
-                              color: event.type === "EXTERNA" ? "#000" : "#fff",
+                              color: event.type === "VIDEO CONF" ? "#fff" : event.type === "EXTERNA" ? "#000" : event.type === "INTERNA" ? "#ffff" : event.type === "VIDEO INTERNA" ? "#ffff" : event.type === "RENOV ONLINE" ? "#ffff" : event.type === "APROVADO" ? "#ffff" : event.type === "EMITIDO" ? "#ffff" : event.type === "INFORMACOES" ? "#ffff" : "#000",
                          },
                     })}               
                />
