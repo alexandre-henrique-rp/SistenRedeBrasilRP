@@ -56,8 +56,18 @@ export default function Calendario() {
           ndt.setMinutes(dt.getMinutes() + 60);
           var horaFim = ndt.getHours();
           var minutoFim = ndt.getMinutes();
+
           let vld = item.validacao === "VIDEO CONF" ? "VC" : item.validacao === "INTERNA" ? "INT" : item.validacao === "EXTERNA" ? "EXT" : item.validacao === "VIDEO INTERNA" ? "VI" : item.validacao === "RENOV ONLINE" ? "RO" : "";
-          let identifica = item.validacao === "VIDEO CONF" ? item.validacao : item.validacao === "INTERNA" ? item.validacao : item.validacao === "EXTERNA" ? item.validacao : item.validacao === "VIDEO INTERNA" ? item.validacao : item.validacao === "RENOV ONLINE" ? item.validacao : item.andamento;
+
+          let identifica = item.andamento === "APROVADO" ?
+               item.andamento : item.andamento === "EMITIDO" ?
+                    item.andamento : item.andamento === "INFORMACOES" ?
+                    item.andamento : item.validacao === "VIDEO CONF" ?
+                    item.validacao : item.validacao === "INTERNA" ?
+                    item.validacao : item.validacao === "EXTERNA" ?
+                    item.validacao : item.validacao === "VIDEO INTERNA" ?
+                    item.validacao : item.validacao === "RENOV ONLINE" ?
+                    item.validacao : "";
           var titulo = vld + "  " + item.id + "  " + item.titulo + " " + item.obs_agenda; 
                
           return {
@@ -95,7 +105,7 @@ export default function Calendario() {
                          end,
                          isSelected,
                          style: {
-                              backgroundColor: event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "APROVADO" ? "#4c2bf1" : event.type === "EMITIDO" ? "#4c2bf1" : event.type === "INFORMACOES" ? "#fd2600" : "#ffff",
+                              backgroundColor: event.type === "APROVADO" ? "#4c2bf1" : event.type === "EMITIDO" ? "#4c2bf1" : event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : event.type === "RENOV ONLINE" ? "#696969" :  event.type === "INFORMACOES" ? "#fd2600" : "#ffff",
                               
                               border: event.type === " " ? "3px solid #000000" : "1px solid",
                     
