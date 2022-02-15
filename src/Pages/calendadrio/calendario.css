@@ -1,3 +1,9 @@
-.videoConf {
-     background-color: chartreuse;
+@import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+.rbc-timeslot-group {
+     min-height: 60px;
+}
+
+.rbc-event-content {
+     font-size: 0.85rem;
 }

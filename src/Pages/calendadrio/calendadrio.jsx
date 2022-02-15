@@ -1,10 +1,10 @@
 import './calendario.css';
-import { Calendar, dateFnsLocalizer, V } from 'react-big-calendar';
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import format from 'date-fns/format';
 import getDay from 'date-fns/getDay';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+
 import React, { useEffect, useState } from 'react';
 import ptBR from 'date-fns/locale/pt-BR';
 import axios from 'axios';
@@ -56,32 +56,19 @@ export default function Calendario() {
           ndt.setMinutes(dt.getMinutes() + 60);
           var horaFim = ndt.getHours();
           var minutoFim = ndt.getMinutes();
-          // var link = $("")
-          // function validacao() {
+          let vld = item.validacao === "VIDEO CONF" ? "VC" : item.validacao === "INTERNA" ? "INT" : item.validacao === "EXTERNA" ? "EXT" : item.validacao === "VIDEO INTERNA" ? "VI" : item.validacao === "RENOV ONLINE" ? "RO" : "";
                
-          //      var vld = item.validacao
-          //      if (vld === "VIDEO CONF") {
-          //           return <div className="rbc-event" style={{ backgroundColor: "#8e24aa"}} />;
-          //      } else if (vld === "EXTERNA") {
-          //           return  "#f6bf26" 
-               
-          //      }
-          // }
-          
-          // backgroundColor: 'chartreuse'
-               
-          var titulo = item.id + " " + item.validacao + " " + item.titulo; 
+          var titulo = vld + "  " + item.id + "  " + item.titulo; 
                
           
 
 
           return {
                title: titulo,
+               id: item.id,
                start: new Date(ano, mes, dia, hora, minuto, segundo),
                end: new Date(endAno, endMes, endDia, horaFim, minutoFim, segundo),
-               style: { backgroundColor: "#f6bf26"
-}
-
+               type: item.validacao,
           };
 
      });
@@ -98,7 +85,27 @@ export default function Calendario() {
 
      return (
           <div className="container">
-               <Calendar localizer={localizer} events={itensAgenda} startAccessor={itensAgenda.start} endAccessor={itensAgenda.end} style={{ height: "90vh", margin: "50px", marginTop: "0"}} />
+               <Calendar
+                    localizer={localizer}
+                    events={itensAgenda}
+                    startAccessor={itensAgenda.start}
+                    endAccessor={itensAgenda.end}
+                    style={{ height: "90vh", margin: "50px", marginTop: "0" }}
+                    eventPropGetter={(event, start, end, isSelected) => ({
+                         event,
+                         start,
+                         end,
+                         isSelected,
+                         style: {
+                              backgroundColor: event.type === "VIDEO CONF" ? "#8e24aa" : event.type === "EXTERNA" ? "#dff800" : event.type === "INTERNA" ? "#F55600" : event.type === "VIDEO INTERNA" ? "#026c1c" : event.type === "RENOV ONLINE" ? "#696969" : "#ffff",
+                              
+                              border: "1px solid",
+                              borderColor: event.type === "VIDEO CONF" ? "#471255" : event.type === "EXTERNA" ? "#707C00" : event.type === "INTERNA" ? "#7B2B00" : event.type === "VIDEO INTERNA" ? "#01360E" : event.type === "RENOV ONLINE" ? "#353535" : "",
+                              
+                              color: event.type === "EXTERNA" ? "#000" : "#fff",
+                         },
+                    })}               
+               />
 
           </div>
      )
