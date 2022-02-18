@@ -43,7 +43,6 @@ export default function Calendario() {
           var mes = item.dt_agenda.substr(5, 2) - "1";
           var ano = item.dt_agenda.substr(0, 4);
           var hora = item.hr_agenda.substr(0, 2)
-          
           var minuto = item.hr_agenda.substr(3, 2);
           var segundo = '0';
           var endDia = dia;
